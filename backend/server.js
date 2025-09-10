@@ -15,6 +15,9 @@ app.use(express.json());
 import studentRoutes from './routes/studentRoutes.js';
 app.use('/api/students', studentRoutes);
 
+import employeeRoutes from './routes/employeeRoutes.js';
+app.use('/api/employees', employeeRoutes)
+
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB Connected'))
