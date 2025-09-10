@@ -1,19 +1,23 @@
 import React from "react";
+import axios from 'axios';
+
 
 function DynamicForm({ title, sections }) {
 
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
 
-const handleSubmit = (e) => {
-  e.preventDefault(); 
-
-  const formData = new FormData(e.target.value);
-  
-  const data = Object.fromEntries(formData.entries()); 
-
-  console.log("Form Submitted: ", data);
-}
-
-
+    try {
+      const res = await axios.post("http://localhost:5000/api/students", data);
+      alert("Student saved successfully!");
+      console.log(res.data);
+    } catch (error) {
+      console.error(error);
+      alert("Error saving student data");
+    }
+  };
 
 
 

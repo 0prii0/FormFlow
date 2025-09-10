@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import StudentForm from './pages/studentForm'
+import StudentForm from './pages/StudentForm';
 import EmployeeForm from './pages/EmployeeForm'
 import DogAdoptionForm from './pages/DogAdoptionForm'
 import Navbar from './components/Navbar'
@@ -24,7 +24,7 @@ const App = () => {
             <Route path="/dog-adoption" element={<DogAdoptionForm />} />
             
 
-            {/* <Route path="*" element={<StudentForm />} /> */}
+            <Route path="/" element={<StudentForm />} />
           </Routes>
         </div>
       </div>
