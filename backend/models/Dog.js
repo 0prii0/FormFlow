@@ -1,5 +1,5 @@
 
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const DogAdoptionSchema = new mongoose.Schema(
   {
@@ -20,4 +20,7 @@ const DogAdoptionSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("DogAdoption", DogAdoptionSchema);
+
+const Dog = mongoose.model("Dog", DogAdoptionSchema);
+
+export default Dog;
