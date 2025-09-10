@@ -111,7 +111,7 @@ const StudentForm = () => {
   return (
    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="max-w-4xl w-full bg-white shadow-xl rounded-2xl p-10">
-        <DynamicForm title="College Registration Form" sections={formSections} />
+        <DynamicForm title="College Registration Form" sections={formSections} apiEndpoint="http://localhost:5000/api/students" />
       </div>
     </div>
   );

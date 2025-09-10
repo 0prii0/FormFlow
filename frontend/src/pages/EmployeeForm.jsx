@@ -36,7 +36,7 @@ const EmployeeForm = () => {
           ],
         },
         {
-          name: "Phone",
+          name: "phone",
           label: "Phone",
           type: "tel",
           required: true,
@@ -57,6 +57,7 @@ const EmployeeForm = () => {
       <DynamicForm
         title="Employee Registration Form"
         sections={employeeFormSections}
+        apiEndpoint="http://localhost:5000/api/employees" 
       />
       </div>
     </div>

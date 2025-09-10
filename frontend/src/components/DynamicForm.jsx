@@ -2,23 +2,25 @@ import React from "react";
 import axios from 'axios';
 
 
-function DynamicForm({ title, sections }) {
-
-const handleSubmit = async (e) => {
+function DynamicForm({ title, sections, apiEndpoint }) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Collect form data
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
+    console.log("Submitting Form Data:", data);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/students", data);
-      alert("Student saved successfully!");
-      console.log(res.data);
+      // Make POST request
+      const response = await axios.post(apiEndpoint, data);
+      alert("Data submitted successfully!");
+      console.log("Server Response:", response.data);
     } catch (error) {
-      console.error(error);
-      alert("Error saving student data");
+      console.error("Error submitting form:", error.response?.data || error.message);
+      alert("Failed to submit form. Check console for details.");
     }
   };
-
 
 
   return (
