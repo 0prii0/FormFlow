@@ -17,9 +17,19 @@ router.post('/', async (req, res) => {
 
 // GET: Get all students (optional)
 router.get('/', async (req, res) => {
-  try {
+ try {
     const students = await Student.find();
-    res.json(students);
+
+    // Format DOB for each student
+    const formattedDate = students.map((e) => ({
+      ...e._doc,
+
+      dateOfBirth: e.dateOfBirth
+        ? new Date(e.dateOfBirth).toLocaleDateString('en-GB') 
+        : null,
+    }));
+
+    res.json(formattedDate);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
