@@ -11,7 +11,7 @@ const DogAdoptionData = () => {
     const fetchDogs = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("http://localhost:5000/api/dog-adoption");
+        const res = await axios.get("http://localhost:5000/api/dogs");
         setDogs(res.data);
       } catch (error) {
         console.error("Error fetching Dogs Data:", error);

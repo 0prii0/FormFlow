@@ -9,7 +9,7 @@ const DataTable = ({ columns,data }) => {
             {columns.map((col, index) => (
               <th
                 key={index}
-                className="px-4 py-2 text-left text-sm font-semibold text-gray-700 border-b"
+                className="px-4 py-2 text-left text-sm font-semibold text-gray-700 border-b uppercase"
               >
                 {col}
               </th>

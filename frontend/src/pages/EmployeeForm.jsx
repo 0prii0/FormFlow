@@ -40,6 +40,8 @@ const EmployeeForm = () => {
           label: "Phone",
           type: "tel",
           required: true,
+          pattern: "^[0-9]{10}$", 
+          title: "Phone number must be exactly 10 digits",
         },
         {
           name: "email",

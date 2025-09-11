@@ -16,6 +16,7 @@ function DynamicForm({ title, sections, apiEndpoint }) {
       const response = await axios.post(apiEndpoint, data);
       alert("Data submitted successfully!");
       console.log("Server Response:", response.data);
+      window.location.reload()
     } catch (error) {
       console.error("Error submitting form:", error.response?.data || error.message);
       alert("Failed to submit form. Check console for details.");
@@ -80,6 +81,8 @@ function DynamicForm({ title, sections, apiEndpoint }) {
                         type={field.type}
                         placeholder={field.placeholder}
                         required={field.required}
+                        pattern={field.pattern}
+                        title={field.title}
                         className="w-full px-5 py-3 mt-1 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition bg-gray-50 hover:bg-white text-gray-800"
                       />
                     )}
