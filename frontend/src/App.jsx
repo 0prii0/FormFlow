@@ -4,6 +4,8 @@ import StudentForm from './pages/StudentForm';
 import EmployeeForm from './pages/EmployeeForm'
 import DogAdoptionForm from './pages/DogAdoptionForm'
 import Navbar from './components/Navbar'
+import StudentDataPage from './pages/StudentData';
+import EmployeeDataPage from './pages/EmployeeData';
 
 
 
@@ -22,6 +24,8 @@ const App = () => {
             <Route path="/student" element={<StudentForm />} />
             <Route path="/employee" element={<EmployeeForm />} />
             <Route path="/dog-adoption" element={<DogAdoptionForm />} />
+            <Route path = "/students" element={<StudentDataPage />} />
+            <Route path = "/employees" element ={<EmployeeDataPage/>} />
             
 
             <Route path="/" element={<StudentForm />} />
