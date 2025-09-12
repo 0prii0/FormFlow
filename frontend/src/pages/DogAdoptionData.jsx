@@ -11,7 +11,7 @@ const DogAdoptionData = () => {
     const fetchDogs = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("http://localhost:5000/api/dogs-adoptions");
+        const res = await axios.get("http://localhost:5000/api/dog-adoptions");
         setDogsAdoptions(res.data);
       } catch (error) {
         console.error("Error fetching Dogs Data:", error);
@@ -48,7 +48,7 @@ const columns = [
             <p className="mb-4 text-gray-600">
               Total Records: <span className="font-bold">{dogsAdoptions.length}</span>
             </p>
-            <DataTable columns={columns} data={dogsAdoptions} exportEndpoint=" http://localhost:5000/api/dogs-adoptions/export" />
+            <DataTable columns={columns} data={dogsAdoptions} exportEndpoint= "http://localhost:5000/api/dog-adoptions/export"/>
             </>
              )}
       </div>

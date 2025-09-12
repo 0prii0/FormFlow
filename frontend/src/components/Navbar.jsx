@@ -44,7 +44,7 @@ const Navbar = () => {
         >
           <option value="/students">Students Data</option>
           <option value="/employees">Employees Data</option>
-          <option value="/dogs-adoptions">Dogs Adoption Data</option>
+          <option value="/dog-adoptions">Dogs Adoption Data</option>
         </select>
       </div>
     </nav>
