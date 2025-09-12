@@ -21,6 +21,7 @@ const DogAdoptionSchema = new mongoose.Schema(
 );
 
 
-const Dog = mongoose.model("Dog", DogAdoptionSchema);
+const DogAdoption = mongoose.model("DogAdoption", DogAdoptionSchema);
 
-export default Dog;
+
+export default DogAdoption;
