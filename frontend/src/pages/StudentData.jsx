@@ -52,7 +52,7 @@ const StudentDataPage = () => {
             <p className="mb-4 text-gray-600">
               Total Records: <span className="font-bold">{students.length}</span>
             </p>
-            <DataTable columns={columns} data={students} />
+            <DataTable columns={columns} data={students} exportEndpoint= "http://localhost:5000/api/students/export" />
           </>
         )}
       </div>
