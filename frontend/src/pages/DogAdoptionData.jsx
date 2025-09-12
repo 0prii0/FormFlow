@@ -48,7 +48,7 @@ const columns = [
             <p className="mb-4 text-gray-600">
               Total Records: <span className="font-bold">{dogsAdoptions.length}</span>
             </p>
-            <DataTable columns={columns} data={dogsAdoptions} />
+            <DataTable columns={columns} data={dogsAdoptions} exportEndpoint=" http://localhost:5000/api/dogs-adoptions/export" />
             </>
              )}
       </div>

@@ -7,6 +7,17 @@ const EmployeeDataPage = () => {
     const [employees, setEmployees] = useState([]);
     const [loading, setLoading] = useState(false)
 
+
+
+
+
+
+
+
+
+
+
+
 // Fetch data from backend
     useEffect(() => {
         const fetchEmployees = async () => {
@@ -50,7 +61,7 @@ const EmployeeDataPage = () => {
             <p className="mb-4 text-gray-600">
               Total Records: <span className="font-bold">{employees.length}</span>
             </p>
-            <DataTable columns={columns} data={employees} />
+            <DataTable columns={columns} data={employees} exportEndpoint= "http://localhost:5000/api/employees/export" />
             </>
              )}
       </div>
