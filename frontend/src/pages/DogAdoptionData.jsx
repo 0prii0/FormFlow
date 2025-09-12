@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import DataTable from "./components/DataTable";
+import DataTable from "../components/DataTable";
 
 const DogAdoptionData = () => {
-  const [dogs, setDogs] = useState([]);
+  const [dogsAdoptions, setDogsAdoptions] = useState([]);
   const [loading, setLoading] = useState(false);
 
   // Data fetching from backend
@@ -11,8 +11,8 @@ const DogAdoptionData = () => {
     const fetchDogs = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("http://localhost:5000/api/dogs");
-        setDogs(res.data);
+        const res = await axios.get("http://localhost:5000/api/dogs-adoptions");
+        setDogsAdoptions(res.data);
       } catch (error) {
         console.error("Error fetching Dogs Data:", error);
       } finally {
@@ -46,9 +46,9 @@ const columns = [
         ) : (
           <>
             <p className="mb-4 text-gray-600">
-              Total Records: <span className="font-bold">{dogs.length}</span>
+              Total Records: <span className="font-bold">{dogsAdoptions.length}</span>
             </p>
-            <DataTable columns={columns} data={dogs} />
+            <DataTable columns={columns} data={dogsAdoptions} />
             </>
              )}
       </div>

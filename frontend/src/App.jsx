@@ -6,7 +6,7 @@ import DogAdoptionForm from './pages/DogAdoptionForm'
 import Navbar from './components/Navbar'
 import StudentDataPage from './pages/StudentData';
 import EmployeeDataPage from './pages/EmployeeData';
-import DogAdoptionData from './DogAdoptionData';
+import DogAdoptionData from './pages/DogAdoptionData';
 
 
 
@@ -27,7 +27,7 @@ const App = () => {
             <Route path="/dog-adoption" element={<DogAdoptionForm />} />
             <Route path = "/students" element={<StudentDataPage />} />
             <Route path = "/employees" element ={<EmployeeDataPage/>} />
-            <Route path = "/dogs" element={<DogAdoptionData/>} />
+            <Route path = "/dogs-adoptions" element={<DogAdoptionData/>} />
             
 
             <Route path="/" element={<StudentForm />} />

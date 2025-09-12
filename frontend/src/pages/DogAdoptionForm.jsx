@@ -70,7 +70,7 @@ const DogAdoptionForm = () => {
         <DynamicForm
           title="Dog Adoption Form"
           sections={dogFormFields}
-          apiEndpoint="http://localhost:5000/api/dog-adoption"
+          apiEndpoint="http://localhost:5000/api/dogs-adoptions"
         />
       </div>
     </div>
