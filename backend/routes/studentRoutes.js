@@ -1,6 +1,7 @@
 // backend/routes/studentRoutes.js
 import express from 'express';
 import Student from '../models/Student.js'
+import XLSX from 'xlsx';
 
 const router = express.Router();
 
@@ -30,6 +31,35 @@ router.get('/', async (req, res) => {
     }));
 
     res.json(formattedDate);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
+router.get('/export', async (req, res) => {
+  try {
+    const students = await Student.find().lean();
+
+    if (!students.length) {
+      return res.status(404).json({ message: 'No student data found' });
+    }
+
+    // Create worksheet & workbook
+    const worksheet = XLSX.utils.json_to_sheet(students);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Students');
+
+    // Convert workbook to buffer
+    const buffer = XLSX.write(workbook, { type: 'buffer', bookType: 'xlsx' });
+
+    // Send as downloadable file
+    res.setHeader('Content-Disposition', 'attachment; filename=students.xlsx');
+    res.setHeader(
+      'Content-Type',
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    );
+    res.send(buffer);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
