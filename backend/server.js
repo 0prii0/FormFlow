@@ -19,7 +19,7 @@ import employeeRoutes from './routes/employeeRoutes.js';
 app.use('/api/employees', employeeRoutes)
 
 import dogRoutes from './routes/dogRoutes.js';
-app.use('/api/dogs-adoptions', dogRoutes)
+app.use('/api/dog-adoptions', dogRoutes)
 
 
 

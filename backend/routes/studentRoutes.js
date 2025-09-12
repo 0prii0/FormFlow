@@ -1,7 +1,7 @@
 // backend/routes/studentRoutes.js
 import express from 'express';
 import Student from '../models/Student.js'
-import XLSX from 'xlsx';
+import * as XLSX from "xlsx";
 
 const router = express.Router();
 
