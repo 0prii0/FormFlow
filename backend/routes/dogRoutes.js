@@ -24,4 +24,34 @@ router.get("/", async (req, res) => {
 });
 
 
+
+
+router.get('/export', async(req, res) => {
+try {
+  const dogsAdoptions = await DogAdoption.find().lean();
+  if (!dogsAdoptions.length) {
+    return res.status(404).json ({message: "No Data Found"});
+  };
+
+  const worksheet = XLSX.utils.json_to_sheet();
+  const workbook = XLSX.utils.book_new();
+  XLSX.book_append_sheet(workbook,worksheet, 'Dogs Adoption');
+
+
+  const buffer = XLSX.write(workbook, { type: "buffer", bookType: "xlsx" });
+
+    res.setHeader("Content-Disposition", "attachment; filename=students.xlsx");
+    res.setHeader(
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    );
+    res.send(buffer);
+
+} catch (error) {
+  res.status(500).json({error: error.message});
+}
+  
+
+})
+
 export default router;
