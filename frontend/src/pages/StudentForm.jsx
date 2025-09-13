@@ -1,5 +1,5 @@
 import React from "react";
-import DynamicForm from "../components/dynamicForm";
+import DynamicForm from "../components/DynamicForm";
 
 const StudentForm = () => {
    const API_BASE_URL = import.meta.env.VITE_API_URL;
