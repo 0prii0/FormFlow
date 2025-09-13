@@ -2,6 +2,7 @@ import React from "react";
 import DynamicForm from "../components/dynamicForm";
 
 const DogAdoptionForm = () => {
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
   const dogFormFields = [
     {
       heading: "Dog Adoption Form",
@@ -70,7 +71,7 @@ const DogAdoptionForm = () => {
         <DynamicForm
           title="Dog Adoption Form"
           sections={dogFormFields}
-          apiEndpoint="http://localhost:5000/api/dog-adoptions"
+          apiEndpoint={`${API_BASE_URL}/api/dog-adoptions`}
         />
       </div>
     </div>

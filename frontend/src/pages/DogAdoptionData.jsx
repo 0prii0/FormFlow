@@ -6,12 +6,14 @@ const DogAdoptionData = () => {
   const [dogsAdoptions, setDogsAdoptions] = useState([]);
   const [loading, setLoading] = useState(false);
 
+   const API_BASE_URL = import.meta.env.VITE_API_URL;
+
   // Data fetching from backend
   useEffect(() => {
     const fetchDogs = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("http://localhost:5000/api/dog-adoptions");
+        const res = await axios.get(`${API_BASE_URL}/api/dog-adoptions`);
         setDogsAdoptions(res.data);
       } catch (error) {
         console.error("Error fetching Dogs Data:", error);
@@ -21,7 +23,7 @@ const DogAdoptionData = () => {
     };
 
     fetchDogs();
-  }, []);
+  }, [API_BASE_URL]);
 
 //   define columns
 const columns = [
@@ -48,7 +50,7 @@ const columns = [
             <p className="mb-4 text-gray-600">
               Total Records: <span className="font-bold">{dogsAdoptions.length}</span>
             </p>
-            <DataTable columns={columns} data={dogsAdoptions} exportEndpoint= "http://localhost:5000/api/dog-adoptions/export"/>
+            <DataTable columns={columns} data={dogsAdoptions} exportEndpoint={`${API_BASE_URL}/api/dog-adoptions/export`}/>
             </>
              )}
       </div>

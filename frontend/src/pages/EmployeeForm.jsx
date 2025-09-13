@@ -3,6 +3,9 @@ import DynamicForm from "../components/dynamicForm";
 
 
 const EmployeeForm = () => {
+
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
   const employeeFormSections = [
     {
       heading: "Employee Information",
@@ -59,7 +62,7 @@ const EmployeeForm = () => {
       <DynamicForm
         title="Employee Registration Form"
         sections={employeeFormSections}
-        apiEndpoint="http://localhost:5000/api/employees" 
+        apiEndpoint={`${API_BASE_URL}/api/employees`}
       />
       </div>
     </div>

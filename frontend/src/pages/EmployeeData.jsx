@@ -7,15 +7,7 @@ const EmployeeDataPage = () => {
     const [employees, setEmployees] = useState([]);
     const [loading, setLoading] = useState(false)
 
-
-
-
-
-
-
-
-
-
+    const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 
 // Fetch data from backend
@@ -23,7 +15,7 @@ const EmployeeDataPage = () => {
         const fetchEmployees = async () => {
             try {
                setLoading(true)
-               const res = await axios.get("http://localhost:5000/api/employees")
+               const res = await axios.get(`${API_BASE_URL}/api/employees`)
                setEmployees(res.data) 
             } catch (error) {
                 console.error("Error fetching employees:", error)
@@ -34,7 +26,7 @@ const EmployeeDataPage = () => {
         }
 
         fetchEmployees()
- }, []);
+ }, [API_BASE_URL]);
 
  // Define table columns based on schema
  const columns = [
@@ -61,7 +53,7 @@ const EmployeeDataPage = () => {
             <p className="mb-4 text-gray-600">
               Total Records: <span className="font-bold">{employees.length}</span>
             </p>
-            <DataTable columns={columns} data={employees} exportEndpoint= "http://localhost:5000/api/employees/export" />
+            <DataTable columns={columns} data={employees} exportEndpoint={`${API_BASE_URL}/api/employees/export`} />
             </>
              )}
       </div>

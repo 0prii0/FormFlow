@@ -2,6 +2,7 @@ import React from "react";
 import DynamicForm from "../components/dynamicForm";
 
 const StudentForm = () => {
+   const API_BASE_URL = import.meta.env.VITE_API_URL;
   const formSections = [
     {
       heading: "Student Information",
@@ -113,7 +114,7 @@ const StudentForm = () => {
         <DynamicForm
           title="College Registration Form"
           sections={formSections}
-          apiEndpoint="http://localhost:5000/api/students"
+          apiEndpoint={`${API_BASE_URL}/api/students`}
         />
       </div>
     </div>

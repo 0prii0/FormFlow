@@ -6,12 +6,13 @@ const StudentDataPage = () => {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(false);
 
+    const API_BASE_URL = import.meta.env.VITE_API_URL;
   // Fetch data from backend
   useEffect(() => {
     const fetchStudents = async () => {
       try {
         setLoading(true)
-        const res = await axios.get("http://localhost:5000/api/students");
+        const res = await axios.get(`${API_BASE_URL}/api/students`);
         setStudents(res.data);
       } catch (error) {
         console.error("Error fetching students:", error);
@@ -21,7 +22,7 @@ const StudentDataPage = () => {
     };
 
     fetchStudents();
-  }, []);
+  }, [API_BASE_URL]);
 
   // Define table columns based on schema
   const columns = [
@@ -52,7 +53,7 @@ const StudentDataPage = () => {
             <p className="mb-4 text-gray-600">
               Total Records: <span className="font-bold">{students.length}</span>
             </p>
-            <DataTable columns={columns} data={students} exportEndpoint= "http://localhost:5000/api/students/export" />
+            <DataTable columns={columns} data={students} exportEndpoint={`${API_BASE_URL}/api/students/export`} />
           </>
         )}
       </div>
