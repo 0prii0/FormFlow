@@ -42,6 +42,9 @@ const Navbar = () => {
           defaultValue=""
           onChange={handleData}
         >
+          <option value="" disabled>
+            Form Data
+          </option>
           <option value="/students">Students Data</option>
           <option value="/employees">Employees Data</option>
           <option value="/dog-adoptions">Dogs Adoption Data</option>
